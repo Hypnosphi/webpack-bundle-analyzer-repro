@@ -6,11 +6,25 @@
   "author": "Filipp Riabchun <filipp.riabchun@jetbrains.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build:assign": "webpack --env.libraryTarget=assign",
+    "build:amd": "webpack --env.libraryTarget=amd",
+    "build:amd-require": "webpack --env.libraryTarget=amd-require",
+    "build:umd": "webpack --env.libraryTarget=umd",
+    "build:system": "webpack --env.libraryTarget=system",
+    "build:jsonp": "webpack --env.libraryTarget=jsonp",
+    "build:commonjs": "webpack --env.libraryTarget=commonjs",
+    "build:commonjs2": "webpack --env.libraryTarget=commonjs2",
+    "build:global": "webpack --env.libraryTarget=global",
+    "build:this": "webpack --env.libraryTarget=this",
+    "build:var": "webpack --env.libraryTarget=var",
+    "build:window": "webpack --env.libraryTarget=window",
+    "build": "rm -rf dist/ && npm-run-all --parallel --silent build:* && prettier --loglevel=error --write dist/*.json"
   },
   "dependencies": {
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "prettier": "^2.0.5",
+    "npm-run-all": "^4.1.5"
   }
 }
